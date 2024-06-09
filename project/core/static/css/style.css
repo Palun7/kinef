@@ -1,0 +1,63 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* navbar */
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    height: 5vh;
+    background-color: purple;
+    align-items: center;
+}
+
+nav a {
+    color: rgb(253, 165, 0);
+    text-decoration: none;
+    font-size: 1.5em;
+    letter-spacing: .2em;
+}
+
+nav img {
+    margin-top: .5vh;
+    height: 4vh;
+}
+
+
+
+
+/* footer */
+
+footer {
+    height: 5vh;
+    background-color: purple;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: rgb(253, 165, 0);
+    font-size: 1.5em;
+    letter-spacing: .2em;
+    margin-right: 5vw;
+}
+
+
+
+
+
+/* core */
+
+main {
+    min-height: 90vh;
+}

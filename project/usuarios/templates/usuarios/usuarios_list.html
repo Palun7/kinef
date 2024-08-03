@@ -1,0 +1,36 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Lista de usuarios
+{% endblock title %}
+
+{% block content %}
+    <main class="contenedor_principal">
+        <h1>Lista de Usuarios</h1>
+        <div class="busqueda">
+            <form action="{% url 'usuarios:usuarios_list' %}" method="get">
+                <input type="text" name="busqueda" placeholder="Buscar usuario">
+            </form>
+        </div>
+        <div>
+            {% for object in object_list %}
+                <div>
+                    <p><strong>{{object.user.username}}</strong></p>
+                    {% if object.foto %}
+                        <img src="{{ object.foto.url }}" alt="Foto de {{ object.user.username }}" width="100px" height="">
+                    {% else %}
+                        <p class="foto_mascota">No hay foto</p>
+                    {% endif %}
+                    <div>
+                        <a href="{% url 'usuarios:usuarios_detail' object.id %}">Detalles</a>
+                        <a href="{% url 'usuarios:usuarios_update' object.id %}">Editar</a>
+                        <a href="{% url 'usuarios:usuarios_delete' object.id %}">Borrar</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+            <div>
+                <a href="{% url 'usuarios:index' %}">Volver</a>
+            </div>
+        </main>
+        {% endblock content %}

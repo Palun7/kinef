@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Inicio de Sesión
+{% endblock title %}
+
+{% block content %}
+    <main class="contenedor_principal">
+        <h1 class="titulo">Iniciar Sesión</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <input type="hidden" name="next" value="{% url 'core:index' %}">
+            <button type="submit">Iniciar Sesión</button>
+        </form>
+    </main>
+{% endblock content %}

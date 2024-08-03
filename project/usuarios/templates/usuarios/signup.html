@@ -1,0 +1,16 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Crear Usuario
+{% endblock title %}
+
+{% block content %}
+    <main class="contenedor_principal">
+        <h1 class="titulo">Crear Usuario</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Guardar</button>
+        </form>
+    </main>
+{% endblock content %}

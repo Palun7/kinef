@@ -1,0 +1,35 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block title %}
+    Detalle del Usuario
+{% endblock title %}
+
+{% block content %}
+    <main class="contenedor_principal">
+        <div>
+            <h1>{{ object.user.username }}</h1>
+        </div>
+        <ul>
+            <div>
+                <li>Nombre: {{ object.user.first_name }}</li>
+                <li>Apellido: {{ object.user.last_name }}</li>
+                <li>DNI: {{ object.dni }}</li>
+                <li>Fecha de nacimiento: {{ object.fecha_nacimiento }}</li>
+                <li>Telefono: {{ object.telefono }}</li>
+                <li>Domicilio: {{ object.domicilio }}</li>
+                {% if object.instagram %}
+                    <li>Instagram: {{ object.instagram }}</li>
+                {% endif %}
+            </div>
+            {% if object.foto %}
+                <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="200px" height="">
+            {% else %}
+                <p>No hay foto disponible</p>
+            {% endif %}
+        </ul>
+        <div>
+            <a href="{% url 'usuarios:usuarios_list' %}">Volver</a>
+        </div>
+    </main>
+{% endblock content %}

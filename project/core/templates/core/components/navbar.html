@@ -1,8 +1,24 @@
 {% load static %}
-<nav>
-    <a href="{% url 'core:index' %}"><img src="{% static 'img/kinef_logo1.png' %}" alt="" width="" height=""></a>
-    <a href="">Usuarios</a>
-    <a href="">Pagos</a>
-    <a href="">Gastos</a>
-    <a href="">Horas</a>
-</nav>
+<header>
+    <ul>
+        <li class="logo-header"><a href="{% url 'core:index' %}"><img src="{% static 'img/kinef_logo1.png' %}" alt="Logo de Kinef" width="" height="" class="imagen-logo"></a></li>
+        {% if user.is_superuser %}
+        <li><a href="{% url 'usuarios:index' %}">Usuarios</a></li>
+        <li><a href="{% url 'pagos:index' %}">Pagos</a></li>
+        <li><a href="">Gastos</a></li>
+        <li><a href="">Horas</a></li>
+        {% endif %}
+        {% if user.is_authenticated %}
+        <li><a href="">{{ user.username }}</a></li>
+        <div>
+            <form action="{% url 'usuarios:logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout">Logout</button>
+            </form>
+        </div>
+        {% else %}
+        <li><a href="{% url 'usuarios:login' %}" class="link">login</a></li>
+        <li><a href="{% url 'usuarios:signup' %}" class="link">Crear Usuario</a></li>
+        {% endif %}
+    </ul>
+</header>

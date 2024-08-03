@@ -1,6 +1,8 @@
 * {
     padding: 0;
     margin: 0;
+    text-decoration: none;
+    list-style: none;
 }
 
 body {
@@ -9,24 +11,44 @@ body {
     min-height: 100vh;
 }
 
-/* navbar */
+/* header */
 
-nav {
+header {
     display: flex;
-    justify-content: space-around;
     height: 5vh;
     background-color: purple;
-    align-items: center;
+    justify-content: center;
 }
 
-nav a {
+header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    width: 95%;
+}
+
+.logo-header {
+    flex-grow: 1;
+}
+
+.imagen-logo {
+    transition-duration: .2s;
+}
+
+.imagen-logo:hover {
+    scale: 1.1;
+    transition-duration: .5s;
+}
+
+header ul li a {
     color: rgb(253, 165, 0);
     text-decoration: none;
     font-size: 1.5em;
-    letter-spacing: .2em;
+    letter-spacing: .12em;
 }
 
-nav img {
+header img {
     margin-top: .5vh;
     height: 4vh;
 }
@@ -58,6 +80,22 @@ footer a {
 
 /* core */
 
-main {
+.contenedor_principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aliceblue;
     min-height: 90vh;
+}
+
+.titulo {
+    color: rgb(51, 0, 51);
+    font-size: 3rem;
+    margin-top: 5vh;
+    letter-spacing: .2vw;
+}
+
+.texto-bienvenida {
+    margin: 50px;
+    font-size: 1.5rem;
 }

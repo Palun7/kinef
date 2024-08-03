@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Pagos
+{% endblock title %}
+
+{% block content %}
+    <main class="contenedor_principal">
+        <div>
+            <a href="{% url 'pagos:pagos_create' %}">Cargar pago</a>
+        </div>
+        <div class="busqueda">
+            <form action="{% url 'pagos:pagos_list' %}" method="get">
+                <input type="text" name="busqueda" placeholder="Buscar pago">
+            </form>
+        </div>
+        <div class="card-pagos-container">
+            {% for object in object_list %}
+                <div class="card-pagos">
+                    <p><strong>{{ object.usuario }}</strong></p>
+                    <p>${{ object.monto }}</p>
+                    <p>{{ object.actividad }}</p>
+                    <p>Pago realizado el {{ object.fecha }}</p>
+                    <a href="{% url 'pagos:pagos_update' object.id %}">Editar</a>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock content %}

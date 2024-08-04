@@ -1,0 +1,27 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    {% if form.instance.pk %}
+        Editar gasto
+    {% else %}
+        Cargar gasto
+    {% endif %}
+{% endblock title %}
+
+{% block content %}
+    <main class="contenedor_principal">
+        {% if form.instance.pk %}
+            <h1>Editar gasto</h1>
+        {% else %}
+            <h1>Cargar gasto</h1>
+        {% endif %}
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Guardar</button>
+        </form>
+        <div>
+            <a href="{% url 'gastos:gastos_list' %}">Volver</a>
+        </div>
+    </main>
+{% endblock content %}

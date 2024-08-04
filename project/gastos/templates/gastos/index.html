@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Gastos
+{% endblock title %}
+
+{% block content %}
+    <main class="contenedor_principal">
+        <h1 class="titulo">Gastos</h1>
+        <div>
+            <a href="{% url 'gastos:gastos_list' %}">Ver Gastos realizados</a>
+        </div>
+    </main>
+{% endblock content %}

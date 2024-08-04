@@ -1,0 +1,34 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Gastos
+{% endblock title %}
+
+{% block content %}
+    <main class="contenedor_principal">
+        <div>
+            <a href="{% url 'gastos:gastos_create' %}">Cargar gasto</a>
+        </div>
+        <div class="busqueda">
+            <form action="{% url 'gastos:gastos_list' %}" method="get">
+                <input type="text" name="busqueda" placeholder="Buscar gasto">
+            </form>
+        </div>
+        <div class="card-pagos-container">
+            {% for object in object_list %}
+                <div class="card-pagos">
+                    <p>Mes: {{ object.mes.capitalize }}</p>
+                    <p>Concepto: {{ object.concepto }}</p>
+                    <p>Gasto: {{ object.fijo_variable.capitalize }}</p>
+                    <p>Monto: ${{ object.monto }}</p>
+                    <p>Fecha: {{ object.fecha_pago }}</p>
+                    <p>cargado por: {{ object.usuario }}</p>
+                    <a href="{% url 'gastos:gastos_update' object.id %}">Editar</a>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            <p>El total de los gastos es: ${{ total_gastos }}</p>
+        </div>
+    </main>
+{% endblock content %}

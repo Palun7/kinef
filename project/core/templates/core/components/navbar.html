@@ -5,7 +5,7 @@
         {% if user.is_superuser %}
         <li><a href="{% url 'usuarios:index' %}">Usuarios</a></li>
         <li><a href="{% url 'pagos:index' %}">Pagos</a></li>
-        <li><a href="">Gastos</a></li>
+        <li><a href="{% url 'gastos:index' %}">Gastos</a></li>
         <li><a href="">Horas</a></li>
         {% endif %}
         {% if user.is_authenticated %}

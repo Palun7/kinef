@@ -17,9 +17,11 @@
         <div class="card-pagos-container">
             {% for object in object_list %}
                 <div class="card-pagos">
-                    <p><strong>{{ object.usuario }}</strong></p>
-                    <p>${{ object.monto }}</p>
-                    <p>{{ object.actividad }}</p>
+                    <p>Usuario: {{ object.usuario }}</p>
+                    <p>Monto: ${{ object.monto }}</p>
+                    <p>Metodo de pago: {{ object.modo_pago }}</p>
+                    <p>Actividad: {{ object.actividad }}</p>
+                    <p>Pase: {{ object.pase }}</p>
                     <p>Pago realizado el {{ object.fecha }}</p>
                     <a href="{% url 'pagos:pagos_update' object.id %}">Editar</a>
                 </div>

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.views.generic import DeleteView, DetailView, ListView, UpdateView, CreateView
+from django.views.generic import ListView, UpdateView, CreateView
 from .models import Pagos
 from django.db.models import Q
 from .forms import PagosForm
@@ -21,7 +21,7 @@ class PagosList(LoginRequiredMixin, ListView):
         busqueda = self.request.GET.get("busqueda")
         if busqueda:
             queryset = queryset.filter(
-                Q(usuario__nombre__icontains=busqueda) |
+                Q(usuario__user__username__icontains=busqueda) |
                 Q(monto__icontains=busqueda) |
                 Q(actividad__icontains=busqueda)
             )

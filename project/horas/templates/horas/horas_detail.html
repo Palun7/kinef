@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Detalles de horas
+{% endblock title %}
+
+{% block content %}
+    <main class="contenedor_principal">
+        <div>
+                <p>Profe: {{ object.usuario }}</p>
+                <p>Mes: {{ object.mes }}</p>
+                <p>Horas: {{ object.horas }}</p>
+                <p>Dias: {{ dia }}</p>
+                <a href="{% url 'horas:horas_update' object.id %}">Editar</a>
+        </div>
+    </main>
+{% endblock content %}

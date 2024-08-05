@@ -6,7 +6,7 @@
         <li><a href="{% url 'usuarios:index' %}">Usuarios</a></li>
         <li><a href="{% url 'pagos:index' %}">Pagos</a></li>
         <li><a href="{% url 'gastos:index' %}">Gastos</a></li>
-        <li><a href="">Horas</a></li>
+        <li><a href="{% url 'horas:index' %}">Horas</a></li>
         {% endif %}
         {% if user.is_authenticated %}
         <li><a href="">{{ user.username }}</a></li>

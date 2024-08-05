@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Horas
+{% endblock title %}
+
+{% block content %}
+    <main class="contenedor_principal">
+        <h1 class="titulo">Horas</h1>
+        <div>
+            <a href="{% url 'horas:horas_list' %}">Ver horas</a>
+        </div>
+    </main>
+{% endblock content %}

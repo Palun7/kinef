@@ -16,7 +16,7 @@ body {
 header {
     display: flex;
     height: 5vh;
-    background-color: purple;
+    background-color: rgb(253, 165, 0);
     justify-content: center;
 }
 
@@ -42,10 +42,19 @@ header ul {
 }
 
 header ul li a {
-    color: rgb(253, 165, 0);
+    color: purple;
+    padding: 2px;
     text-decoration: none;
     font-size: 1.5em;
     letter-spacing: .12em;
+    border-radius: 5px;
+    transition-duration: .2s;
+}
+
+header ul li a:hover {
+    color:rgb(253, 165, 0);
+    background-color: purple;
+    transition-duration: .5s;
 }
 
 header img {
@@ -70,10 +79,18 @@ footer a {
     text-decoration: none;
     color: rgb(253, 165, 0);
     font-size: 1.5em;
-    letter-spacing: .2em;
+    letter-spacing: 2px;
     margin-right: 5vw;
+    border-radius: 5px;
+    padding: 2px;
+    transition-duration: .2s;
 }
 
+footer a:hover {
+    background-color: rgb(253, 165, 0);
+    color: purple;
+    transition-duration: .5s;
+}
 
 
 
@@ -81,21 +98,312 @@ footer a {
 /* core */
 
 .contenedor_principal {
+    padding: 2vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: aliceblue;
-    min-height: 90vh;
+    min-height: 86vh;
 }
 
 .titulo {
+    text-decoration: underline;
     color: rgb(51, 0, 51);
     font-size: 3rem;
     margin-top: 5vh;
     letter-spacing: .2vw;
 }
 
+.link {
+    margin: 2vh;
+    padding: 5px;
+    text-decoration: none;
+    letter-spacing: 1.2px;
+    color: rgb(253, 165, 0);
+    font-size: 1.2rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    background-color: purple;
+    transition-duration: .2s;
+}
+
+.link:hover {
+    background-color: rgb(253, 165, 0);
+    color: purple;
+    transition-duration: .5s;
+    cursor: pointer;
+}
+
 .texto-bienvenida {
     margin: 50px;
     font-size: 1.5rem;
+}
+
+.busqueda-container {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+}
+
+.busqueda-container form input {
+    background-color: rgb(255, 204, 109);
+    color: purple;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    height: 20px;
+    width: 20vw;
+    padding: 3px;
+    margin: 20px;
+}
+
+.busqueda-container form input::placeholder {
+    color: purple;
+    font-weight: normal;
+}
+
+.form-login-container {
+    display: flex;
+    margin: 20px;
+}
+
+.form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-login input {
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    appearance: none; /* Eliminamos la apariencia predeterminada */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    position: relative;
+    outline: none; /* Eliminar el borde predeterminado */
+}
+
+input[type="checkbox"]:checked {
+    background-color: #007BFF;
+    border-color: rgb(253, 165, 0);
+}
+
+input[type="checkbox"]::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 4px;
+}
+
+input[type="checkbox"]:checked::before {
+    content: '✔';
+    color: purple;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16px;
+}
+
+.form-login select {
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.form-login select option:hover {
+    color: rgb(253, 165, 0);
+    background-color: purple;
+}
+
+.form-login select option:checked {
+    background-color: rgb(253, 165, 0);
+    color: purple;
+}
+
+.form-login select:focus {
+    border-color: rgb(253, 165, 0);
+    box-shadow: 0 0 5px rgb(253, 165, 0);
+    outline: none;
+}
+
+.form-signup-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.form-signup {
+    display: flex;
+    flex-direction: column;
+    width: 10vw;
+    gap: 10px;
+}
+
+.form-signup input {
+    align-self: flex-end;
+    padding: 3px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.card-usuario-container {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    width: 95%;
+    flex-grow: 1;
+}
+
+.card-usuario {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: max-content;
+    background-color: rgb(177, 218, 253);
+    padding: 5px;
+}
+
+.card-horas-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: auto;
+    width: 95%;
+    flex-grow: 1;
+}
+
+.card-horas {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: max-content;
+    background-color: rgb(177, 218, 253);
+    padding: 15px;
+}
+
+.nombre {
+    font-size: 1.2rem;
+}
+
+.foto-usuario {
+    width: 100px;
+}
+
+.crud {
+    letter-spacing: 1.2px;
+    padding: 2px;
+    text-decoration: none;
+    color: rgb(253, 165, 0);
+    background-color: purple;
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition-duration: .2s;
+    width: min-content;
+}
+
+.crud:hover {
+    background-color: rgb(253, 165, 0);
+    color: purple;
+    transition-duration: .5s;
+}
+
+.volver-container {
+    margin: 0 20vw 10px 0;
+    align-self: flex-end;
+}
+
+.volver {
+    letter-spacing: 1.5px;
+    font-size: 1.2rem;
+    background-color: purple;
+    text-decoration: none;
+    color: rgb(253, 165, 0);
+    border: 1px solid transparent;
+    border-radius: 5px;
+    transition-duration: .2s;
+    padding: 2px;
+}
+
+.volver:hover {
+    color: purple;
+    background-color: rgb(253, 165, 0);
+}
+
+.datos-container {
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5vw;
+    flex-grow: 1;
+    border-radius: 5px;
+    background-color: rgb(179, 218, 252);
+}
+
+.datos {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.detalles-horas {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 20vw;
+    flex-wrap: wrap;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(179, 218, 252);
+}
+
+.foto-usuario-detalle {
+    height: 25vw;
+}
+
+.card-pagos-container {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: auto;
+    width: 95%;
+    max-height: 73vh;
+    overflow: auto;
+}
+
+.card-pagos {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 100%;
+    border: 1px solid black;
+    border-radius: 5px;
+    height: max-content;
+    background-color: rgb(177, 218, 253);
+    padding: 5px;
+    margin: 3px;
+}
+
+.total {
+    font-size: 1.2rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 3px;
+    background-color: rgb(179, 218, 252);
 }

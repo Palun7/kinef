@@ -7,10 +7,15 @@
 {% block content %}
     <main class="contenedor_principal">
         <h1 class="titulo">Crear Usuario</h1>
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit">Guardar</button>
-        </form>
+        <div class="form-signup-container">
+            <form method="post" enctype="multipart/form-data" class="form-signup">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="link">Guardar</button>
+            </form>
+        </div>
+        <div class="volver-container">
+            <a href="{% url 'core:index' %}" class="volver">Volver</a>
+        </div>
     </main>
 {% endblock content %}

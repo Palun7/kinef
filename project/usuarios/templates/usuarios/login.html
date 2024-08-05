@@ -7,11 +7,16 @@
 {% block content %}
     <main class="contenedor_principal">
         <h1 class="titulo">Iniciar Sesión</h1>
-        <form method="post">
-            {% csrf_token %}
-            {{ form }}
-            <input type="hidden" name="next" value="{% url 'core:index' %}">
-            <button type="submit">Iniciar Sesión</button>
-        </form>
+        <div class="form-login-container">
+            <form method="post" class="form-login">
+                {% csrf_token %}
+                {{ form }}
+                <input type="hidden" name="next" value="{% url 'core:index' %}">
+                <button type="submit" class="link">Iniciar Sesión</button>
+            </form>
+        </div>
+        <div class="volver-container">
+            <a href="{% url 'core:index' %}" class="volver">Volver</a>
+        </div>
     </main>
 {% endblock content %}

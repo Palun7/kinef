@@ -7,6 +7,9 @@
 {% block content %}
     <main class="contenedor_principal">
         <h1 class="titulo">Usuarios</h1>
-        <a href="{% url 'usuarios:usuarios_list' %}">Ver usuarios</a>
+        <a href="{% url 'usuarios:usuarios_list' %}" class="link">Ver todos los usuarios</a>
+        <div class="volver-container">
+            <a href="{% url 'core:index' %}" class="volver">Volver</a>
+        </div>
     </main>
 {% endblock content %}

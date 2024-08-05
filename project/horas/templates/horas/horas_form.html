@@ -11,17 +11,19 @@
 {% block content %}
     <main class="contenedor_principal">
         {% if form.instance.pk %}
-            <h1>Editar horas</h1>
+            <h1 class="titulo">Editar horas</h1>
         {% else %}
-            <h1>Cargar horas</h1>
+            <h1 class="titulo">Cargar horas</h1>
         {% endif %}
-        <form method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {{ form }}
-            <button type="submit">Guardar</button>
-        </form>
-        <div>
-            <a href="{% url 'horas:horas_list' %}">Volver</a>
+        <div class="form-login-container">
+            <form method="post" enctype="multipart/form-data" class="form-login">
+                {% csrf_token %}
+                {{ form }}
+                <button type="submit" class="link">Guardar</button>
+            </form>
+        </div>
+        <div class="volver-container">
+            <a href="{% url 'horas:horas_list' %}" class="volver">Volver</a>
         </div>
     </main>
 {% endblock content %}

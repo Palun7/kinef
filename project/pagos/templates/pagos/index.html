@@ -7,8 +7,9 @@
 {% block content %}
     <main class="contenedor_principal">
         <h1 class="titulo">Pagos</h1>
-        <div>
-            <a href="{% url 'pagos:pagos_list' %}">Ver pagos realizados</a>
+        <a href="{% url 'pagos:pagos_list' %}" class="link">Ver pagos realizados</a>
+        <div class="volver-container">
+            <a href="{% url 'core:index' %}" class="volver">Volver</a>
         </div>
     </main>
 {% endblock content %}

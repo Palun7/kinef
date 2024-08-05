@@ -7,8 +7,9 @@
 {% block content %}
     <main class="contenedor_principal">
         <h1 class="titulo">Gastos</h1>
-        <div>
-            <a href="{% url 'gastos:gastos_list' %}">Ver Gastos realizados</a>
+        <a href="{% url 'gastos:gastos_list' %}" class="link">Ver Gastos realizados</a>
+        <div class="volver-container">
+            <a href="{% url 'core:index' %}" class="volver">Volver</a>
         </div>
     </main>
 {% endblock content %}

@@ -23,6 +23,8 @@ class PagosList(LoginRequiredMixin, ListView):
             queryset = queryset.filter(
                 Q(usuario__user__username__icontains=busqueda) |
                 Q(monto__icontains=busqueda) |
+                Q(modo_pago__icontains=busqueda) |
+                Q(pase__icontains=busqueda) |
                 Q(actividad__icontains=busqueda)
             )
         return queryset

@@ -8,28 +8,28 @@
 {% block content %}
     <main class="contenedor_principal">
         <div>
-            <h1>{{ object.user.username }}</h1>
+            <h1 class="titulo">{{ object.user.username }}</h1>
         </div>
-        <ul>
-            <div>
-                <li>Nombre: {{ object.user.first_name }}</li>
-                <li>Apellido: {{ object.user.last_name }}</li>
-                <li>DNI: {{ object.dni }}</li>
-                <li>Fecha de nacimiento: {{ object.fecha_nacimiento }}</li>
-                <li>Telefono: {{ object.telefono }}</li>
-                <li>Domicilio: {{ object.domicilio }}</li>
+        <ul class="datos-container">
+            <div class="datos">
+                <li><strong>Nombre:</strong> {{ object.user.first_name }}</li>
+                <li><strong>Apellido:</strong> {{ object.user.last_name }}</li>
+                <li><strong>DNI:</strong> {{ object.dni }}</li>
+                <li><strong>Fecha de nacimiento:</strong> {{ object.fecha_nacimiento }}</li>
+                <li><strong>Telefono:</strong> {{ object.telefono }}</li>
+                <li><strong>Domicilio:</strong> {{ object.domicilio }}</li>
                 {% if object.instagram %}
-                    <li>Instagram: {{ object.instagram }}</li>
+                    <li><strong>Instagram:</strong> @{{ object.instagram }}</li>
                 {% endif %}
             </div>
             {% if object.foto %}
-                <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="200px" height="">
+                <img src="{{ object.foto.url }}" alt="Foto de {{ object.nombre }}" width="" height="" class="foto-usuario-detalle">
             {% else %}
-                <p>No hay foto disponible</p>
+                <p class="foto-usuario">No hay foto disponible</p>
             {% endif %}
         </ul>
-        <div>
-            <a href="{% url 'usuarios:usuarios_list' %}">Volver</a>
+        <div class="volver-container">
+            <a href="{% url 'usuarios:usuarios_list' %}" class="volver">Volver</a>
         </div>
     </main>
 {% endblock content %}

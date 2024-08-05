@@ -7,25 +7,37 @@
 {% block content %}
     <main class="contenedor_principal">
         <div>
-            <a href="{% url 'pagos:pagos_create' %}">Cargar pago</a>
+            <a href="{% url 'pagos:pagos_create' %}" class="link">Cargar pago</a>
         </div>
-        <div class="busqueda">
+        <div class="busqueda-container">
             <form action="{% url 'pagos:pagos_list' %}" method="get">
                 <input type="text" name="busqueda" placeholder="Buscar pago">
             </form>
         </div>
         <div class="card-pagos-container">
+            <div class="card-pagos">
+                <p><strong>Usuario</strong></p>
+                <p><strong>Monto</strong></p>
+                <p><strong>Metodo de pago</strong></p>
+                <p><strong>Actividad</strong></p>
+                <p><strong>Pase</strong></p>
+                <p><strong>Pago realizado</strong></p>
+                <p><strong>Editar</strong></p>
+            </div>
             {% for object in object_list %}
                 <div class="card-pagos">
-                    <p>Usuario: {{ object.usuario }}</p>
-                    <p>Monto: ${{ object.monto }}</p>
-                    <p>Metodo de pago: {{ object.modo_pago }}</p>
-                    <p>Actividad: {{ object.actividad }}</p>
-                    <p>Pase: {{ object.pase }}</p>
-                    <p>Pago realizado el {{ object.fecha }}</p>
-                    <a href="{% url 'pagos:pagos_update' object.id %}">Editar</a>
+                    <p><strong>{{ object.usuario }}</strong></p>
+                    <p>${{ object.monto }}</p>
+                    <p>{{ object.modo_pago }}</p>
+                    <p>{{ object.actividad }}</p>
+                    <p>{{ object.pase }}</p>
+                    <p>{{ object.fecha }}</p>
+                    <a href="{% url 'pagos:pagos_update' object.id %}" class="crud">Editar</a>
                 </div>
             {% endfor %}
+        </div>
+        <div class="volver-container">
+            <a href="{% url 'pagos:index' %}" class="volver">Volver</a>
         </div>
     </main>
 {% endblock content %}

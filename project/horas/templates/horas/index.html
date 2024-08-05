@@ -7,8 +7,9 @@
 {% block content %}
     <main class="contenedor_principal">
         <h1 class="titulo">Horas</h1>
-        <div>
-            <a href="{% url 'horas:horas_list' %}">Ver horas</a>
+        <a href="{% url 'horas:horas_list' %}" class="link">Ver horas</a>
+        <div class="volver-container">
+            <a href="{% url 'core:index' %}" class="volver">Volver</a>
         </div>
     </main>
 {% endblock content %}

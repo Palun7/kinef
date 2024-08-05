@@ -7,23 +7,26 @@
 {% block content %}
     <main class="contenedor_principal">
         <div>
-            <a href="{% url 'horas:horas_create' %}">Cargar horas</a>
+            <a href="{% url 'horas:horas_create' %}" class="link">Cargar horas</a>
         </div>
-        <div class="busqueda">
+        <div class="busqueda-container">
             <form action="{% url 'horas:horas_list' %}" method="get">
                 <input type="text" name="busqueda" placeholder="Buscar horas">
             </form>
         </div>
-        <div class="card-pagos-container">
+        <div class="card-horas-container">
             {% for object in object_list %}
-                <div class="card-pagos">
+                <div class="card-horas">
                     <p>Profe: {{ object.usuario }}</p>
                     <p>Mes: {{ object.mes }}</p>
                     <p>Horas: {{ object.horas }}</p>
-                    <a href="{% url 'horas:horas_update' object.id %}">Editar</a>
-                    <a href="{% url 'horas:horas_detail' object.id %}">Detalles</a>
+                    <a href="{% url 'horas:horas_update' object.id %}" class="crud">Editar</a>
+                    <a href="{% url 'horas:horas_detail' object.id %}" class="crud">Detalles</a>
                 </div>
             {% endfor %}
+        </div>
+        <div class="volver-container">
+            <a href="{% url 'horas:index' %}" class="volver">Volver</a>
         </div>
     </main>
 {% endblock content %}

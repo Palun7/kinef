@@ -7,28 +7,40 @@
 {% block content %}
     <main class="contenedor_principal">
         <div>
-            <a href="{% url 'gastos:gastos_create' %}">Cargar gasto</a>
+            <a href="{% url 'gastos:gastos_create' %}" class="link">Cargar gasto</a>
         </div>
-        <div class="busqueda">
+        <div class="busqueda-container">
             <form action="{% url 'gastos:gastos_list' %}" method="get">
                 <input type="text" name="busqueda" placeholder="Buscar gasto">
             </form>
         </div>
         <div class="card-pagos-container">
+            <div class="card-pagos">
+                <p><strong>Mes</strong></p>
+                <p><strong>Concepto</strong></p>
+                <p><strong>Gasto</strong></p>
+                <p><strong>Monto</strong></p>
+                <p><strong>Fecha</strong></p>
+                <p><strong>Cargado por</strong></p>
+                <p><strong>Editar</strong></p>
+            </div>
             {% for object in object_list %}
                 <div class="card-pagos">
-                    <p>Mes: {{ object.mes.capitalize }}</p>
-                    <p>Concepto: {{ object.concepto }}</p>
-                    <p>Gasto: {{ object.fijo_variable.capitalize }}</p>
-                    <p>Monto: ${{ object.monto }}</p>
-                    <p>Fecha: {{ object.fecha_pago }}</p>
-                    <p>cargado por: {{ object.usuario }}</p>
-                    <a href="{% url 'gastos:gastos_update' object.id %}">Editar</a>
+                    <p>{{ object.mes.capitalize }}</p>
+                    <p>{{ object.concepto }}</p>
+                    <p>{{ object.fijo_variable.capitalize }}</p>
+                    <p>${{ object.monto }}</p>
+                    <p>{{ object.fecha_pago }}</p>
+                    <p>{{ object.usuario }}</p>
+                    <a href="{% url 'gastos:gastos_update' object.id %}" class="crud">Editar</a>
                 </div>
             {% endfor %}
         </div>
         <div>
-            <p>El total de los gastos es: ${{ total_gastos }}</p>
+            <p class="total">El total de los gastos es: ${{ total_gastos }}</p>
+        </div>
+        <div class="volver-container">
+            <a href="{% url 'gastos:index' %}" class="volver">Volver</a>
         </div>
     </main>
 {% endblock content %}

@@ -6,12 +6,15 @@
 
 {% block content %}
     <main class="contenedor_principal">
-        <div>
-                <p>Profe: {{ object.usuario }}</p>
-                <p>Mes: {{ object.mes }}</p>
-                <p>Horas: {{ object.horas }}</p>
-                <p>Dias: {{ dia }}</p>
-                <a href="{% url 'horas:horas_update' object.id %}">Editar</a>
+        <div class="detalles-horas">
+            <p>Profe: {{ object.usuario }}</p>
+            <p>Mes: {{ object.mes }}</p>
+            <p>Horas: {{ object.horas }}</p>
+            <p>Dias: {{ dia }}</p>
+            <a href="{% url 'horas:horas_update' object.id %}" class="crud">Editar</a>
+        </div>
+        <div class="volver-container">
+            <a href="{% url 'usuarios:index' %}" class="volver">Volver</a>
         </div>
     </main>
 {% endblock content %}

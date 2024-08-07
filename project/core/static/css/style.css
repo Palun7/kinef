@@ -305,11 +305,17 @@ input[type="checkbox"]:checked::before {
 
 .foto-usuario {
     width: 100px;
+    border-radius: 5px;
 }
 
 .foto-usuario-no {
     height: 100px;
     width: 100px;
+}
+
+.foto-usuario-perfil {
+    width: 300px;
+    border-radius: 5px;
 }
 
 .crud {
@@ -383,6 +389,7 @@ input[type="checkbox"]:checked::before {
 
 .foto-usuario-detalle {
     height: 25vw;
+    border-radius: 5px;
 }
 
 .card-pagos-container {
@@ -414,3 +421,20 @@ input[type="checkbox"]:checked::before {
     background-color: rgb(179, 218, 252);
 }
 
+.card-pago-container {
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 50px;
+}
+
+.card-pago-container p {
+    font-size: 1.2rem;
+}
+
+.proximo-vencimiento {
+    color: red;
+    font-size: 1.2rem;
+    text-align: center;
+}

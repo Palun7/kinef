@@ -7,9 +7,6 @@
 {% block content %}
     <main class="contenedor_principal">
         <h1 class="titulo">Espacio Kinef</h1>
-        {% if user.is_authenticated %}
-            <a href="{% url 'usuarios:perfil' user.id %}">{{ user.username }}</a>
-        {% endif %}
         <div>
             <p class="texto-bienvenida">Bienvenido, tenemos muchas propuestas para vos.</p>
         </div>

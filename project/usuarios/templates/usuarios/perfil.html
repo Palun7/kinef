@@ -7,14 +7,33 @@
 {% block content %}
     <main class="contenedor_principal">
         <h1 class="titulo">{{ user.username }}</h1>
+        <ul class="datos-container">
+            <div class="datos">
+                <li><strong>Nombre:</strong> {{ usuarios.user.first_name }}</li>
+                <li><strong>Apellido:</strong> {{ usuarios.user.last_name }}</li>
+                <li><strong>DNI:</strong> {{ usuarios.dni }}</li>
+                <li><strong>Fecha de nacimiento:</strong> {{ usuarios.fecha_nacimiento }}</li>
+                <li><strong>Telefono:</strong> {{ usuarios.telefono }}</li>
+                <li><strong>Domicilio:</strong> {{ usuarios.domicilio }}</li>
+                {% if usuarios.instagram %}
+                    <li><strong>Instagram:</strong> @{{ usuarios.instagram }}</li>
+                {% endif %}
+            </div>
+            {% if usuarios.foto %}
+                <img src="{{ usuarios.foto.url }}" alt="Foto de {{ usuarios.user.username }}" width="" height="" class="foto-usuario-detalle">
+            {% else %}
+                <p class="foto-usuario">No hay foto disponible</p>
+            {% endif %}
+        </ul>
         {% if pagos %}
             <div class="card-pago-container">
+                <h2>Pagos realizados</h2>
                 {% for pago in pagos %}
-                <p>Pago realizado el {{ pago.fecha }}</p>
-                <p>Monto: {{ pago.monto }}</p>
-                <p>Metodo de pago: {{ pago.modo_pago }}</p>
-                <p>Actividad: {{ pago.actividad }}</p>
-                <p>Pase: {{ pago.pase }}</p>
+                <p>- Pago realizado el {{ pago.fecha }}</p>
+                <p>- Monto: ${{ pago.monto }}</p>
+                <p>- Metodo de pago: {{ pago.modo_pago.capitalize }}</p>
+                <p>- Actividad: {{ pago.actividad.capitalize }}</p>
+                <p>- Pase: {{ pago.pase.capitalize }}</p>
                 {% endfor %}
             </div>
         {% endif %}

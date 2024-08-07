@@ -3,21 +3,22 @@
     <ul>
         <li class="logo-header"><a href="{% url 'core:index' %}"><img src="{% static 'img/kinef_logo1.png' %}" alt="Logo de Kinef" width="" height="" class="imagen-logo"></a></li>
         {% if user.is_superuser %}
-        <li><a href="{% url 'usuarios:index' %}">Usuarios</a></li>
-        <li><a href="{% url 'pagos:index' %}">Pagos</a></li>
-        <li><a href="{% url 'gastos:index' %}">Gastos</a></li>
-        <li><a href="{% url 'horas:index' %}">Horas</a></li>
+            <li><a href="{% url 'usuarios:index' %}">Usuarios</a></li>
+            <li><a href="{% url 'pagos:index' %}">Pagos</a></li>
+            <li><a href="{% url 'gastos:index' %}">Gastos</a></li>
+            <li><a href="{% url 'horas:index' %}">Horas</a></li>
         {% endif %}
         {% if user.is_authenticated %}
-        <div>
-            <form action="{% url 'usuarios:logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit" class="link">Logout</button>
-            </form>
-        </div>
+            <li><a href="{% url 'usuarios:perfil' user.id %}">{{ user.username }}</a></li>
+            <div>
+                <form action="{% url 'usuarios:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="link">Logout</button>
+                </form>
+            </div>
         {% else %}
-        <li><a href="{% url 'usuarios:login' %}">login</a></li>
-        <li><a href="{% url 'usuarios:signup' %}">Crear Usuario</a></li>
+            <li><a href="{% url 'usuarios:login' %}">login</a></li>
+            <li><a href="{% url 'usuarios:signup' %}">Crear Usuario</a></li>
         {% endif %}
     </ul>
 </header>

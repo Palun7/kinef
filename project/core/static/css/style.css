@@ -262,6 +262,7 @@ input[type="checkbox"]:checked::before {
     overflow: auto;
     width: 95%;
     flex-grow: 1;
+    gap: 10px;
 }
 
 .card-usuario {
@@ -303,6 +304,11 @@ input[type="checkbox"]:checked::before {
 }
 
 .foto-usuario {
+    width: 100px;
+}
+
+.foto-usuario-no {
+    height: 100px;
     width: 100px;
 }
 
@@ -407,3 +413,4 @@ input[type="checkbox"]:checked::before {
     padding: 3px;
     background-color: rgb(179, 218, 252);
 }
+

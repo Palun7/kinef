@@ -13,18 +13,16 @@
             </form>
         </div>
         <div class="card-usuario-container">
-            {% for object in object_list %}
+            {% for object in usuarios %}
                 <div class="card-usuario">
                     <p class="nombre">{{object.user.username}}</p>
                     {% if object.foto %}
                         <img src="{{ object.foto.url }}" alt="Foto de {{ object.user.username }}" width="" height="" class="foto-usuario">
                     {% else %}
-                        <p class="foto-usuario">No hay foto</p>
+                        <p class="foto-usuario-no">No hay foto</p>
                     {% endif %}
                     <div class="crud-container">
                         <a href="{% url 'usuarios:usuarios_detail' object.id %}" class="crud">Detalles</a>
-                        <a href="{% url 'usuarios:usuarios_update' object.id %}" class="crud">Editar</a>
-                        <a href="{% url 'usuarios:usuarios_delete' object.id %}" class="crud">Borrar</a>
                     </div>
                 </div>
             {% endfor %}

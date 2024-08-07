@@ -1,0 +1,33 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+    Perfil
+{% endblock title %}
+
+{% block content %}
+    <main class="contenedor_principal">
+        <h1 class="titulo">{{ user.username }}</h1>
+        {% if pagos %}
+            <div class="card-pago-container">
+                {% for pago in pagos %}
+                <p>Pago realizado el {{ pago.fecha }}</p>
+                <p>Monto: {{ pago.monto }}</p>
+                <p>Metodo de pago: {{ pago.modo_pago }}</p>
+                <p>Actividad: {{ pago.actividad }}</p>
+                <p>Pase: {{ pago.pase }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="proximo-vencimiento">
+            {% if proximo_vencimiento %}
+                <p>Próximo vencimiento de cuota:</p>
+                <p>{{ proximo_vencimiento|date:"d-m-Y" }}</p>
+            {% else %}
+                <p>No hay pagos registrados</p>
+            {% endif %}
+        </div>
+        <div class="volver-container">
+            <a href="{% url 'core:index' %}" class="volver">Volver</a>
+        </div>
+    </main>
+{% endblock content %}

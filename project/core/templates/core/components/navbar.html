@@ -9,7 +9,6 @@
         <li><a href="{% url 'horas:index' %}">Horas</a></li>
         {% endif %}
         {% if user.is_authenticated %}
-        <li><a href="#">{{ user.username }}</a></li>
         <div>
             <form action="{% url 'usuarios:logout' %}" method="post">
                 {% csrf_token %}

@@ -3,6 +3,7 @@
     margin: 0;
     text-decoration: none;
     list-style: none;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -41,7 +42,7 @@ header ul {
     transition-duration: .5s;
 }
 
-header ul li a {
+header ul li .link-header {
     color: purple;
     padding: 2px;
     text-decoration: none;
@@ -51,7 +52,7 @@ header ul li a {
     transition-duration: .2s;
 }
 
-header ul li a:hover {
+header ul li .link-header:hover {
     color:rgb(253, 165, 0);
     background-color: purple;
     transition-duration: .5s;
@@ -107,6 +108,7 @@ footer a:hover {
 }
 
 .titulo {
+    font-family: "Roboto", sans-serif;
     text-decoration: underline;
     color: rgb(51, 0, 51);
     font-size: 3rem;
@@ -137,6 +139,36 @@ footer a:hover {
 .texto-bienvenida {
     margin: 50px;
     font-size: 1.5rem;
+}
+
+.gimnasio-container {
+    width: 90%;
+    height: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.visitanos {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.mapa-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.mapa {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 400px;
+    height: 300px;
+    align-self: flex-end;
 }
 
 .busqueda-container {
@@ -372,7 +404,7 @@ input[type="checkbox"]:checked::before {
 .datos {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 50px;
 }
 
 .detalles-horas {
@@ -438,3 +470,41 @@ input[type="checkbox"]:checked::before {
     font-size: 1.2rem;
     text-align: center;
 }
+
+.contacto-container {
+    width: 80%;
+    background-color: rgb(179, 218, 252);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30vh;
+    margin-top: 5vh;
+    border-radius: 5px;
+}
+
+.email-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.telefono-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.email-container h2 {
+    font-size: 2rem;
+    color: rgb(51, 0, 51);
+    letter-spacing: 1.3px;
+}
+
+.telefono-container h2 {
+    font-size: 2rem;
+    color: rgb(51, 0, 51);
+    letter-spacing: 1.3px;
+}
+
